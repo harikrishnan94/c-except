@@ -40,6 +40,29 @@ void CExceptTryCatchFinally(
 #elif defined(CEXCEPT_NESTED_FUNCTIONS)
 #endif
 
+void CExceptTryCatchFinally(
+	void (*try_block)(), void (*catch_block)(const CExceptExceptionData*), void (*finally_block)());
+
+#define CEXCEPT_TRY()                                                                              \
+	do                                                                                             \
+	{                                                                                              \
+	void try_block()
+
+#define CEXCEPT_CATCH()                                                                            \
+	;                                                                                              \
+	void catch_block(const CExceptExceptionData* exception_data)
+
+#define CEXCEPT_FINALLY()                                                                          \
+	;                                                                                              \
+	void finally_block()
+
+#define CEXCEPT_ENDTRY()                                                                           \
+	;                                                                                              \
+	CExceptTryCatchFinally(try_block, catch_block, finally_block);                                 \
+	}                                                                                              \
+	while (0)
+
+
 #ifdef __cplusplus
 }
 #endif

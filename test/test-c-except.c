@@ -13,6 +13,7 @@ int main()
 	CEXCEPT_FINALLY() { printf("Final\n"); }
 	CEXCEPT_ENDTRY();
 
+#ifdef CEXCEPT_BLOCKS
 	printf("\n");
 
 	CEXCEPT_TRY()
@@ -23,4 +24,5 @@ int main()
 	}
 	CEXCEPT_CATCH() { printf("Caught Exception: %s\n", exception_data->message); }
 	CEXCEPT_ENDTRY();
+#endif
 }
