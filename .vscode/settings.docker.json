@@ -1,0 +1,10 @@
+{
+    "cmake.buildDirectory": "${env:HOME}/build",
+    "cmake.configureArgs": [
+        "-Wno-dev",
+        "-DENABLE_ASAN=Off",
+        "-DENABLE_UBSAN=Off"
+    ],
+    "clangd.path": "clangd-12",
+    "C_Cpp.intelliSenseEngine": "Disabled"
+}
