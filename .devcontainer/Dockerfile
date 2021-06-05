@@ -58,6 +58,9 @@ RUN git config --global http.sslVerify false
 # Install doctest
 RUN vcpkg/vcpkg install doctest
 
+# Install Blocks runtime
+RUN apt install -y libblocksruntime-dev
+
 # Cleanup vcpkg temporary files
 RUN cd vcpkg && rm -rf downloads packages buildtrees
 RUN cd ~/.cache && rm -rf vcpkg
